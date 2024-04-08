@@ -32,6 +32,36 @@ class MainActivity : AppCompatActivity() {
         }
         clearButton.setOnClickListener {
             clearFields()
+        }
+        private fun checkAge() {
+            val ageStr = ageInput.text.toString().trim()
+            if (ageStr.isEmpty()) {
+                resultTextView.text = ("Please enter your age")
+                return
+            }
+            val UsersAge: Int = try {
+                ageStr.toInt()
+            } catch (e: NumberFormatException) {
+                resultTextView.text = ("The age is in an invalid format")
+                return
+            }
+            if (UsersAge !in 20..100) {
+                resultTextView.text = "This age is out of range (20-100)";
+                return
+            }
+            for ((name, age) in famousPeople) {
+                if(UsersAge == age ) {
+                    resultTextView.text = ("you are $age the historical figure  $name died at $age")
+                    break
+                }
+                else{
+                    resultTextView.text = "There is no known historical figure who died at that age"
+                }
+            }
+        }
 
+        private fun clearFields() {
+            ageInput.text.clear()
+        }
 
 }

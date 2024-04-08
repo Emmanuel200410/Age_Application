@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Age_Appication</string>
+    <string name="check" />
+    <string name="clear" />
+    <string name="please_enter_your_age" />
 </resources>

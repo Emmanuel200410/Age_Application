@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity() {
         clearButton.setOnClickListener {
             clearFields()
         }
+    }
+
+
+
         private fun checkAge() {
             val ageStr = ageInput.text.toString().trim()
             if (ageStr.isEmpty()) {
@@ -63,5 +67,9 @@ class MainActivity : AppCompatActivity() {
         private fun clearFields() {
             ageInput.text.clear()
         }
+
+
+    }
+
 
 }

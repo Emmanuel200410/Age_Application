@@ -3,9 +3,11 @@ package com.example.age_appication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
+    //define famous people and their ages
         private val famousPeople = listOf(
             Pair("Nelson Mandela", 95),
             Pair("William Shakespeare", 52),
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             Pair("leonardo da vinci" ,67)
 
         )
+    // ui elements
         private lateinit var ageInput: EditText
         private lateinit var resultTextView: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,10 +52,12 @@ class MainActivity : AppCompatActivity() {
                 resultTextView.text = ("The age is in an invalid format")
                 return
             }
+            //validate age range
             if (UsersAge !in 20..100) {
                 resultTextView.text = "This age is out of range (20-100)";
                 return
             }
+            //find famous person withh exact age as input
             for ((name, age) in famousPeople) {
                 if(UsersAge == age ) {
                     resultTextView.text = ("you are $age the historical figure  $name died at $age")
@@ -64,12 +69,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        private fun clearFields() {
+    //method to clear input
+    private fun clearFields() {
             ageInput.text.clear()
         }
 
 
     }
-
-
-}
